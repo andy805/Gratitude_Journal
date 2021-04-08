@@ -5,7 +5,7 @@
 
 <div class="">
   <form  action="/" method="post">
-    <button type="submit" name="goToJournalEntry">+ add entry</button>
+    <button type="submit" name="goToJournalEntry" value="goToJournalEntry">+ add entry</button>
   </form>
 
 </div>
@@ -24,8 +24,8 @@
 
   <% for(let i = 0; i < journalEntryList.length ; i++) { %>
       <h3> Day <%=i%></h3>
-      <p></p>
-  }
+      <p><%= journalEntryList[i].beginning%></p>
+  <%}%>
 
 </div>
 
