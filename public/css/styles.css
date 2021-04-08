@@ -1,0 +1,19 @@
+
+.neomorphism-card {
+  margin: 5%;
+  padding: 3%;
+  box-shadow: 1px 1px 6px 2px rgba(0,0,0,.15),
+              1px 1px 6px 2px rgba(0,0,0,.15);
+  border-radius: 8px;
+  align-self: center;
+  background: #ffffff;
+  text-align: center;
+}
+
+/* start of grid */
+
+.list {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
