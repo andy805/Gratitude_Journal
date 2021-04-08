@@ -24,7 +24,7 @@ let journalEntryList = [];
 app.get("/", function(req, res){
 
   console.log("get request, /");
-  res.render("journal");
+  res.render("home", {journalEntryList: journalEntryList});
 
 });
 
@@ -45,15 +45,18 @@ app.get("/contact", function(req, res) {
 app.post("/", function(req, res) {
 
   console.log("post request");
-  let calledFrom = req.body.addEntry;
+  console.log(req);
+  console.log(req.body);
+  console.log(req.body.addEntry);
+  let calledFrom = req.body.goToJournalEntry;
 
-  if(calledFrom !== "addEntry"){
+  if(calledFrom !== "goToJournalEntry"){
 
-    res.redirect("home");
+    res.redirect("home", {journalEntryList: journalEntryList});
 
   }
 
-  res.direct("journal")
+  res.render("journal")
 
 
 });
@@ -70,8 +73,11 @@ app.post("/journal", function(req, res){
   }
 
   journalEntryList.push(EntryObj);
-  
+
+  res.render("home", {journalEntryList:journalEntryList});
+
 });
+
 
 app.listen(port, function(){
 
