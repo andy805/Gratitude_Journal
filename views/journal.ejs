@@ -2,10 +2,12 @@
 <%- include("header") -%>
 
 <div class="neomorphism-card">
-
-  <form class="" action="/journal" method="post">
-    <input type="text" name="entry" placeholder="What are you grateful for?">
-    <button type="submit" name="submitEntry"></button>
+  <form class="inputEntry list-journal" action="/journal" method="post">
+    <h6 class="list-journal-header-subject">Title</h6>
+    <input class="list-subject-entry" type="text" name="subjectEntry" placeholder="Enter a title...">
+    <h6 class="list-journal-title">Journal Entry</h6>
+    <textarea class="list-input-entry" name="entry" rows="8" cols="80" placeholder="What are you grateful for?"></textarea>
+    <button class="button-round list-button" type="submit" name="submitEntry">+</button>
   </form>
 
 </div>

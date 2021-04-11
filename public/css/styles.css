@@ -1,4 +1,7 @@
 
+html,body {
+  height: 90%;
+}
 .neomorphism-card {
   margin: 5%;
   padding: 3%;
@@ -8,6 +11,12 @@
   align-self: center;
   background: #ffffff;
   text-align: center;
+  height: 80%;
+}
+
+.inputEntry {
+  height: 100%;
+  width: 100%;
 }
 
 /* start of grid */
@@ -16,4 +25,68 @@
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto;
+}
+
+.list-journal {
+  display: grid;
+  grid-template-columns: auto 80px 50px;
+  grid-template-rows: 4% 5% 4% 80% 7%;
+}
+
+.list-subject-entry {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.list-journal-header-subject {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  justify-self:start;
+}
+
+.list-input-entry {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 6;
+}
+
+.list-button {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  align-self: end;
+  justify-self: end;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-journal-title {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  justify-self:start;
+}
+
+
+/* buttons style */
+.button-round {
+  font-size: 32px;
+  line-height: 32px;
+  text-align: center;
+  border: none;
+  height: 38px;
+  width:38px;
+  background-color: white;
+  color: blue;
+  border-radius: 100%;
+  box-shadow: 1px 1px 6px 2px rgba(0,0,0,.15),
+              1px 1px 6px 2px rgba(0,0,0,.15);
+  padding-bottom: 5px;
 }
