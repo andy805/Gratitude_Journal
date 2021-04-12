@@ -48,6 +48,7 @@ app.post("/", function(req, res) {
   console.log(req);
   console.log(req.body);
   console.log(req.body.addEntry);
+  console.log(req.body.subject)
   let calledFrom = req.body.goToJournalEntry;
 
   if(calledFrom !== "goToJournalEntry"){
@@ -64,17 +65,29 @@ app.post("/", function(req, res) {
 app.post("/journal", function(req, res){
 
   let entry = req.body.entry;
+  let subject = req.body.subjectEntry;
   let beginning = entry.substring(0, 99);
   let entryDate = new Date();
   let EntryObj = {
     date: entryDate,
     beginning: beginning,
-    entry: entry
+    entry: entry,
+    subject: subject
   }
 
   journalEntryList.push(EntryObj);
 
   res.render("home", {journalEntryList:journalEntryList});
+
+});
+
+app.get('/journal/:journalEntry', function (req, res ){
+
+  console.log("in the variable entry");
+  //console.log(req);
+  console.log(req.params);
+  let test = req.params.journalEntry;
+  res.send("<h1>"+test+"</h1>");
 
 });
 
