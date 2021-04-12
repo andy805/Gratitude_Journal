@@ -11,13 +11,38 @@ html,body {
   align-self: center;
   background: #ffffff;
   text-align: center;
-  height: 80%;
+  height: 100%;
 }
 
 .inputEntry {
   height: 100%;
   width: 100%;
 }
+
+.input-textarea {
+  border-radius: 10px;
+  border-color: rgb(0,0,0,0.3);
+}
+
+.input-textarea-title {
+  align-self: end;
+  margin-bottom: 0px;
+  color: rgb(0,0,0,0.3);
+}
+
+.input-input-subject-title {
+  align-self: end;
+  margin-bottom: 0px;
+  color:rgb(0,0,0,0.3);
+}
+
+.input-input-subject {
+  border-radius: 10px;
+  border-color:rgb(0,0,0,0.3);
+  border-width: 1px;
+}
+
+
 
 /* start of grid */
 
@@ -30,7 +55,7 @@ html,body {
 .list-journal {
   display: grid;
   grid-template-columns: auto 80px 50px;
-  grid-template-rows: 4% 5% 4% 80% 7%;
+  grid-template-rows: 5% 5% 7% 77% 5%;
 }
 
 .list-subject-entry {
@@ -73,6 +98,7 @@ html,body {
   grid-row-end: 4;
   justify-self:start;
 }
+/* end of grid */
 
 
 /* buttons style */
