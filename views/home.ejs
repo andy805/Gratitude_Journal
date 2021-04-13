@@ -24,7 +24,7 @@
 
   <% for(let i = 0; i < journalEntryList.length ; i++) { %>
       <h3><%=journalEntryList[i].subject%></h3>
-      <p><%= journalEntryList[i].beginning%><button type="button" name="button"></button></p>
+      <p><%= journalEntryList[i].beginning %><a href="/journal/<%=journalEntryList[i].subject%>"> read more</a></p>
   <%}%>
 
 </div>
