@@ -3,6 +3,7 @@ const express = require("express"); /* we need express object */
 const app = express();
 
 const port = 3000; /*localhost:3000*/
+var counter = 0;
 
 app.use(express.static("public")); /* directory to serve static files(
                                     where css, images, etc go) */
@@ -42,28 +43,28 @@ app.get("/contact", function(req, res) {
 
 });
 
+app.get("/journal", function(req, res) {
+
+  console.log("journal request, /contact")
+  res.render("journal")
+
+});
+
 app.post("/", function(req, res) {
 
-  console.log("post request");
-  console.log(req);
+  console.log("post request, /");
   console.log(req.body);
   console.log(req.body.addEntry);
   console.log(req.body.subject)
-  let calledFrom = req.body.goToJournalEntry;
 
-  if(calledFrom !== "goToJournalEntry"){
-
-    res.redirect("home", {journalEntryList: journalEntryList});
-
-  }
-
-  res.render("journal")
+  res.redirect("/journal")
 
 
 });
 
 app.post("/journal", function(req, res){
 
+  console.log("post request, /journal");
   let entry = req.body.entry;
   let subject = req.body.subjectEntry;
   let beginning = entry.substring(0, 99);
@@ -72,12 +73,13 @@ app.post("/journal", function(req, res){
     date: entryDate,
     beginning: beginning,
     entry: entry,
-    subject: subject
+    subject: subject,
+    primaryId: ++counter
   }
 
   journalEntryList.push(EntryObj);
 
-  res.render("home", {journalEntryList:journalEntryList});
+  res.redirect("/"); /* {journalEntryList:journalEntryList});*/
 
 });
 
@@ -86,8 +88,14 @@ app.get('/journal/:journalEntry', function (req, res ){
   console.log("in the variable entry");
   //console.log(req);
   console.log(req.params);
-  let test = req.params.journalEntry;
-  res.send("<h1>"+test+"</h1>");
+  let post = req.params.journalEntry;
+  let journalPost;
+  for(let i = 0; i < journalEntryList.length; i++){
+      if(journalEntryList[i].subject === post) {
+        journalPost = journalEntryList[i];
+      }
+  }
+  res.render("journalView", {journalPost: journalPost});
 
 });
 
